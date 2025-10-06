@@ -3,8 +3,9 @@ info:
   title: ActionGPT Gmail Server
   version: "3.0"
   description: >
-    Minimal OpenAPI schema for ChatGPT validation test.
-    Backend health check endpoint.
+    ActionGPT Gmail API — 24/7 backend for Gmail automation.
+    Supports reading, sending, deleting, archiving, managing labels,
+    threads, quota, and status.
 
 servers:
   - url: https://actiongpt-server.ngrok.app
@@ -16,7 +17,7 @@ paths:
       operationId: health_check
       responses:
         "200":
-          description: Server is healthy
+          description: OK
           content:
             application/json:
               schema:
