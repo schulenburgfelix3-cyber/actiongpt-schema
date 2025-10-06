@@ -1,0 +1,157 @@
+openapi: 3.1.0
+info:
+  title: ActionGPT Gmail Server
+  version: "3.0"
+  description: |
+    ActionGPT Gmail 3.0 — 24/7 Gmail-Backend mit allen wichtigen API-Funktionen:
+    Lesen, Senden, Löschen, Archivieren, Labels, Threads, Quota, Status & mehr.
+servers:
+  - url: "https://actiongpt-server.ngrok.app"
+paths:
+  /health:
+    get:
+      summary: Health Check
+      operationId: health_health_get
+      responses:
+        "200":
+          description: Server läuft
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok
+
+  /gmail/profile:
+    get:
+      summary: Gmail Profil abrufen
+      operationId: profile_gmail_profile_get
+      responses:
+        "200":
+          description: Gibt Gmail Profilinformationen zurück
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  emailAddress:
+                    type: string
+                  messagesTotal:
+                    type: integer
+                  threadsTotal:
+                    type: integer
+                  historyId:
+                    type: string
+
+  /gmail/list:
+    get:
+      summary: Liste der letzten E-Mails abrufen
+      operationId: list_emails_gmail_list_get
+      parameters:
+        - name: max_results
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 5
+      responses:
+        "200":
+          description: Gibt eine Liste von E-Mail-IDs zurück
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    threadId:
+                      type: string
+
+  /gmail/read:
+    get:
+      summary: E-Mail lesen
+      operationId: read_email_gmail_read_get
+      parameters:
+        - name: message_id
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Gibt den Inhalt einer E-Mail zurück
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  subject:
+                    type: string
+                  from:
+                    type: string
+                  snippet:
+                    type: string
+                  body:
+                    type: string
+
+  /gmail/send:
+    post:
+      summary: E-Mail senden
+      operationId: send_email_gmail_send_post
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [to, subject, body]
+              properties:
+                to:
+                  type: string
+                subject:
+                  type: string
+                body:
+                  type: string
+      responses:
+        "200":
+          description: Bestätigung, dass die E-Mail gesendet wurde
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: sent
+                  to:
+                    type: string
+                  subject:
+                    type: string
+
+  /gmail/delete:
+    delete:
+      summary: E-Mail löschen
+      operationId: delete_gmail_delete_delete
+      parameters:
+        - name: message_id
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Bestätigung des Löschvorgangs
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: deleted
+                  message_id:
+                    type: string
