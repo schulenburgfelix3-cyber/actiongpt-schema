@@ -1,10 +1,10 @@
 openapi: 3.0.1
 info:
   title: ActionGPT Gmail Server
-  version: "1.0"
+  version: "3.0"
   description: >
-    Minimal OpenAPI 3.0 schema for ChatGPT Actions validation.
-    Provides a single /health endpoint for connection testing.
+    Minimal OpenAPI schema for ChatGPT validation test.
+    Backend health check endpoint.
 
 servers:
   - url: https://actiongpt-server.ngrok.app
