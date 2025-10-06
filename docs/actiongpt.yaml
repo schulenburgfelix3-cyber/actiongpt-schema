@@ -2,7 +2,7 @@
 permalink: /actiongpt.yaml
 layout: null
 ---
-openapi: 3.0.1
+openapi: 3.1.0
 info:
   title: ActionGPT Gmail Server
   version: "3.0"
