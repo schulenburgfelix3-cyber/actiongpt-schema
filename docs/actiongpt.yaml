@@ -1,10 +1,15 @@
-openapi: 3.1.0
+openapi: 3.0.1
 info:
-  title: ActionGPT Test API
-  version: "1.0"
-  description: Minimal test schema for ChatGPT Actions import validation.
+  title: ActionGPT Gmail Server
+  version: "3.0"
+  description: >
+    ActionGPT Gmail API — 24/7 backend for Gmail automation.
+    Supports reading, sending, deleting, archiving, managing labels,
+    threads, quota, and status.
+
 servers:
   - url: "https://actiongpt-server.ngrok.app"
+
 paths:
   /health:
     get:
@@ -21,4 +26,3 @@ paths:
                   status:
                     type: string
                     example: ok
-# redeploy Mon Oct  6 18:17:11 UTC 2025
