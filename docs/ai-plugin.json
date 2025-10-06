@@ -3,13 +3,11 @@
   "name_for_human": "ActionGPT Gmail Assistant",
   "name_for_model": "actiongpt_gmail",
   "description_for_human": "Ein 24/7 Gmail Backend für Lesen, Senden, Löschen, Archivieren, Labels, Quota, Threads, Status uvm.",
-  "description_for_model": "Liest, sendet, löscht und verwaltet E-Mails über das angebundene Gmail-Konto. Unterstützt 28 API-Funktionen inklusive Archivieren, Labels, Threads, Quota und Status.",
-  "auth": {
-    "type": "none"
-  },
+  "description_for_model": "Liest, sendet, löscht und verwaltet E-Mails über Gmail. Unterstützt API-Funktionen für Archivierung, Labels, Threads, Quota und Status.",
+  "auth": { "type": "none" },
   "api": {
     "type": "openapi",
-    "url": "https://schulenburgfelix3-cyber.github.io/actiongpt-schema/actiongpt.yaml"
+    "url": "https://schulenburgfelix3-cyber.github.io/actiongpt-schema/actiongpt.json"
   },
   "logo_url": "https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_dark_1x_r2.png",
   "contact_email": "schulenburgfelix3@gmail.com",
