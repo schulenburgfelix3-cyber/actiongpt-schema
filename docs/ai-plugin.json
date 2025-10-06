@@ -9,7 +9,7 @@
   },
   "api": {
     "type": "openapi",
-    "url": "https://actiongpt-server.ngrok.app/actiongpt.yaml"
+    "url": "https://schulenburgfelix3-cyber.github.io/actiongpt-schema/actiongpt.yaml"
   },
   "logo_url": "https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_dark_1x_r2.png",
   "contact_email": "schulenburgfelix3@gmail.com",
